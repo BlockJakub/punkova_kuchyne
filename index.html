@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry Bento Grid with Grid Areas</title>
+    <!-- Adobe Fonts (Replace with your correct Kit ID) -->
+    <link rel="stylesheet" href="https://use.typekit.net/lft2pcd.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2a2a2a;
+            color: #000;
+        }
+
+        h3 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 500;
+            font-size: 23px;
+        }
+
+        /* GRID CONTAINER */
+        .container_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 8, 1fr);
+            /* 4 equal columns */
+            grid-template-rows: 20% auto;
+            gap: 1rem;
+            width: 97vw;
+            height: 97vh;
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px;
+            background-color: #383838;
+
+            /* Define grid layout */
+            grid-template-areas:
+                "box1 box1 box1 box2 box2 box3 box3 box3"
+                "box1 box1 box1 box2 box2 box3 box3 box3"
+                "box4 box4 box5 box5 box6 box6 box7 box7"
+                "box8 box8 box5 box5 box6 box6 box7 box7";
+        }
+
+        /* BOXES */
+        .box {
+            background-color: #f0f0f0;
+            border-radius: 7px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 1em;
+            line-height: 1.7rem;
+        }
+
+        .img {
+            max-width: 228px;
+            border-radius: 50%;
+        }
+
+        .price {
+            font-family: fantasy;
+            font-size: 33px;
+            font-weight: 900;
+            color: rebeccapurple;
+
+        }
+
+        .box:hover {
+            transform: translate(1px, 1px) scale(1.02);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Assigning grid areas */
+        .box-1 {
+            grid-area: box1;
+        }
+
+        /* 2x2 */
+        .box-2 {
+            grid-area: box2;
+        }
+
+        /* 2x1 */
+        .box-3 {
+            grid-area: box3;
+        }
+
+        /* 1x1 */
+        .box-4 {
+            grid-area: box4;
+        }
+
+        /* 1x1 */
+        .box-5 {
+            grid-area: box5;
+            background-color: lightpink;
+        }
+
+        /* 1x1 */
+        .box-6 {
+            grid-area: box6;
+            background-color: lightyellow;
+        }
+
+        /* 1x1 */
+        .box-7 {
+            grid-area: box7;
+            background-color: lightcyan;
+        }
+
+        /* 2x2 */
+        .box-8 {
+            grid-area: box8;
+            background-color: lightgrey;
+        }
+
+        /* 2x1 */
+
+        /* MEDIA QUERIES for RESPONSIVENESS */
+        @media (max-width: 768px) {
+            .container_grid {
+                width: fit-content;
+                height: auto;
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 columns on small screens */
+                grid-template-areas:
+                    "box1 box1"
+                    "box1 box1"
+                    "box3 box3"
+                    "box3 box3"
+                    "box4 box4"
+                    "box4 box4"
+                    "box5 box6"
+                    "box7 box7"
+                    "box7 box7"
+                    "box8 box8"
+                    "box8 box8";
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container_grid {
+                width: 100%;
+                height: auto;
+                grid-template-columns: 1fr;
+                /* 1 column layout for mobile */
+                grid-template-rows: 1fr;
+                grid-template-areas:
+                    "box1"
+                    "box1"
+                    "box2"
+                    "box2"
+                    "box3"
+                    "box3"
+                    "box4"
+                    "box4"
+                    "box5"
+                    "box5"
+                    "box6"
+                    "box6"
+                    "box7"
+                    "box7"
+                    "box8"
+                    "box8";
+            }
+
+            .img {
+                width: 128px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container_grid">
+        <div class="box box-1">
+            <img class="img" src="images/burger_davpsy_gril0025.jpg">
+            <h3>Pivo &amp; burgerBox 1 (2col × 2row)</h3>
+            <p>Dve nejlepsi kombinace.</p>
+            <span class="price">£7.80</span>
+        </div>
+        <div class="box box-2">
+            <img class="img" src="images/houby0029.jpg">
+            <h3>Fresh Mushrooms Box 2 (2col × 1row)</h3>
+            <p>Always makes food proper.</p>
+        </div>
+        <div class="box box-3">
+            <img class="img" src="images/langosh_papir2_0014.jpg">
+            <h3>Langosh Box 3 (1col × 1row)</h3>
+            <span class="price">£6.70</span>
+        </div>
+        <div class="box box-4">
+            <img class="img" src="images/Logo_ivopivo.jpg">
+            <h1>Pankova Kuchyna</h1>
+            <p>Uz coskoro otvarame :D</p>
+        </div>
+        <div class="box box-5">
+            <img class="img" src="images/maso_zeli_gril0024.jpg">
+            <h3>Delicious bites, pure satisfaction!</h3>
+            <p>Homemade goodness, crafted with love.</p>
+        </div>
+        <div class="box box-6">
+            <h3>About Us</h3>
+            <p>Our grill stays fired up all day, delivering mouthwatering flavors.</p>
+            <p>We serve high-quality, freshly
+                prepared meals with rich taste, ensuring every bite brings satisfaction and a memorable dining
+                experience</p>
+        </div>
+        <div class="box box-7">
+            <img class="img" src="images/langosh_papir2_0014.jpg">
+            <h3>Price</h3>
+            <h3>🍔 Classic Burger</h3>
+            <span class="price">£6.50</span>
+            <h3>🍔 Cheese Deluxe</h3>
+            <span class="price">£7.50</span>
+        </div>
+        <div class="box box-8">
+            <img class="img" src="images/langosh_papir2_0014.jpg">
+            <h3>Box 8 (2col × 1row)</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
